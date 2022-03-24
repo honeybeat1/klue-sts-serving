@@ -19,8 +19,8 @@ if torch.cuda.is_available():
   device = torch.device('cuda')
 else:
   device = torch.device('cpu')
-
-tokenizer = AutoTokenizer.from_pretrained('klue/roberta-base')
+# load fine-tuned model, tokenizer 
+tokenizer = AutoTokenizer.from_pretrained('rurupang/roberta-base-finetuned-sts')
 model = AutoModelForSequenceClassification.from_pretrained("rurupang/roberta-base-finetuned-sts", num_labels=1)
 model.to(device)
 ##### PRE-LOAD ####
